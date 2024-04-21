@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: io
+  namespace: app
+  labels:
+    app: io
+spec: 
+  containers: 
+    - name: backend
+      image: blogmates/io:1.0.1

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: authentification
+  namespace: auth
+  labels:
+    app: authentification
+spec: 
+  containers: 
+    - name: authentification
+      image: blogmates/authentication:1.0.1
