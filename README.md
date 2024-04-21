@@ -2,7 +2,7 @@
 
 Kubernetes cluster using minikube.
 
-Deploy you docker images to docker hub: https://hub.docker.com/repositories/blogmates and update the version of the services in the pod files.
+Deploy your docker images to docker hub: https://hub.docker.com/repositories/blogmates and update the version of the services in the pod files.
 
 Arhitectural proposal: https://www.overleaf.com/1699178441myjbvskkwcbm#84d1c4
 
@@ -11,13 +11,13 @@ Arhitectural proposal: https://www.overleaf.com/1699178441myjbvskkwcbm#84d1c4
 Make sure you have minikube, docker and python3 installed.
 
 ```
-python3 init.py
+python3 scripts/init.py
 ```
 
 ## Create the pods and services
 
 ```
-python3 vaporasul.py
+python3 scripts/vaporasul.py
 ```
 
 ## Test the conectivity beetwen clusters
@@ -36,6 +36,12 @@ Check the service files for more details.
 We also deploy three aditional pods for testing the connectivity: test-generic in the default namespace, test-app in the app namespace and test-auth in the auth namespace. We use this to test the conectivity using curl.
 
 Examples:
+
+Check that the pods are running:
+
+```
+kubectl get pods --all-namespaces
+```
 ```
 kubectl exec -it test-pod -- curl -s http://backend-service.app.svc.cluster.local/sanity
 
@@ -62,4 +68,5 @@ kubectl logs <nume-pod>
 kubectl exec <nume-pod> -- ls
 kubectl cp file.txt <nume-pod>:/file.txt
 kubectl delete pods/<nume-pod>
+minikube delete
 ```
