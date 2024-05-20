@@ -20,6 +20,17 @@ python3 scripts/init.py
 python3 scripts/vaporasul.py
 ```
 
+## Add dashboard
+```
+minikube addons enable dashboard
+minikube dashboard
+```
+
+## Expose pgadmin console
+```
+kubectl port-forward pod/authdb -n auth 8080:8080
+```
+
 ## Test the conectivity beetwen clusters
 
 We use kubernetes dns and cluster ip for service discovery
@@ -64,7 +75,7 @@ kubectl get pods -n <namespace>
 kubectl exec -it <podname> <command>
 kubectl apply -f <file>
 kubectl port-forward <nume-pod> 8888:5000
-kubectl logs <nume-pod>
+kubectl logs <nume-pod> -n <nume-namespace> -c <nume-constainer>
 kubectl exec <nume-pod> -- ls
 kubectl cp file.txt <nume-pod>:/file.txt
 kubectl delete pods/<nume-pod>

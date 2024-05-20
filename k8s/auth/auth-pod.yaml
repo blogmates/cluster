@@ -8,4 +8,4 @@ metadata:
 spec: 
   containers: 
     - name: authentification
-      image: blogmates/authentication:1.0.1
+      image: blogmates/authentication-arm

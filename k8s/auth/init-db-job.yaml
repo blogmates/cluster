@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-db
+  namespace: auth
+spec:
+  template:
+    spec:
+      containers:
+      - name: init
+        image: blogmates/auth-db-init-arm
+      restartPolicy: Never
+  backoffLimit: 10
